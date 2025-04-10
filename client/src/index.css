@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
+@plugin 'tailwind-scrollbar';
 
-body{
-    height: 100vh;
+body {
+  height: 100vh;
 }
 
 .ql-editor {
-    font-size: 1.05rem;
+  font-size: 1.05rem;
 }
