@@ -87,16 +87,21 @@ const DashComments = () => {
         <>
           <Table hoverable className="shadow-md">
             <TableHead>
-              <TableHeadCell>Date updated</TableHeadCell>
-              <TableHeadCell>Comment content</TableHeadCell>
-              <TableHeadCell>Number of likes</TableHeadCell>
-              <TableHeadCell>PostId</TableHeadCell>
-              <TableHeadCell>UserId</TableHeadCell>
-              <TableHeadCell>Delete</TableHeadCell>
+              <TableRow>
+                <TableHeadCell>Date updated</TableHeadCell>
+                <TableHeadCell>Comment content</TableHeadCell>
+                <TableHeadCell>Number of likes</TableHeadCell>
+                <TableHeadCell>PostId</TableHeadCell>
+                <TableHeadCell>UserId</TableHeadCell>
+                <TableHeadCell>Delete</TableHeadCell>
+              </TableRow>
             </TableHead>
-            {comments.map((comment) => (
-              <TableBody className="divide-y" key={comment._id}>
-                <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <TableBody className="divide-y">
+              {comments.map((comment) => (
+                <TableRow
+                  key={comment._id}
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                >
                   <TableCell>
                     {new Date(comment.updatedAt).toLocaleDateString()}
                   </TableCell>
@@ -116,8 +121,8 @@ const DashComments = () => {
                     </span>
                   </TableCell>
                 </TableRow>
-              </TableBody>
-            ))}
+              ))}
+            </TableBody>
           </Table>
           {showMore && (
             <button

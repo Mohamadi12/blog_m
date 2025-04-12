@@ -138,13 +138,18 @@ const DashboardComp = () => {
           </div>
           <Table hoverable>
             <TableHead>
-              <TableHeadCell>User image</TableHeadCell>
-              <TableHeadCell>Username</TableHeadCell>
+              <TableRow>
+                <TableHeadCell>User image</TableHeadCell>
+                <TableHeadCell>Username</TableHeadCell>
+              </TableRow>
             </TableHead>
-            {users &&
-              users.map((user) => (
-                <TableBody key={user._id} className="divide-y">
-                  <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <TableBody className="divide-y">
+              {users &&
+                users.map((user) => (
+                  <TableRow
+                    key={user._id}
+                    className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                  >
                     <TableCell>
                       <img
                         src={user.profilePicture}
@@ -154,8 +159,8 @@ const DashboardComp = () => {
                     </TableCell>
                     <TableCell>{user.username}</TableCell>
                   </TableRow>
-                </TableBody>
-              ))}
+                ))}
+            </TableBody>
           </Table>
         </div>
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
@@ -167,20 +172,25 @@ const DashboardComp = () => {
           </div>
           <Table hoverable>
             <TableHead>
-              <TableHeadCell>Comment content</TableHeadCell>
-              <TableHeadCell>Likes</TableHeadCell>
+              <TableRow>
+                <TableHeadCell>Comment content</TableHeadCell>
+                <TableHeadCell>Likes</TableHeadCell>
+              </TableRow>
             </TableHead>
-            {comments &&
-              comments.map((comment) => (
-                <TableBody key={comment._id} className="divide-y">
-                  <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <TableBody className="divide-y">
+              {comments &&
+                comments.map((comment) => (
+                  <TableRow
+                    key={comment._id}
+                    className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                  >
                     <TableCell className="w-96">
                       <p className="line-clamp-2">{comment.content}</p>
                     </TableCell>
                     <TableCell>{comment.numberOfLikes}</TableCell>
                   </TableRow>
-                </TableBody>
-              ))}
+                ))}
+            </TableBody>
           </Table>
         </div>
         <div className="flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800">
@@ -192,26 +202,31 @@ const DashboardComp = () => {
           </div>
           <Table hoverable>
             <TableHead>
-              <TableHeadCell>Post image</TableHeadCell>
-              <TableHeadCell>Post Title</TableHeadCell>
-              <TableHeadCell>Category</TableHeadCell>
+              <TableRow>
+                <TableHeadCell>Post image</TableHeadCell>
+                <TableHeadCell>Post Title</TableHeadCell>
+                <TableHeadCell>Category</TableHeadCell>
+              </TableRow>
             </TableHead>
-            {posts &&
-              posts.map((post) => (
-                <TableBody key={post._id} className="divide-y">
-                  <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <TableBody className="divide-y">
+              {posts &&
+                posts.map((post) => (
+                  <TableRow
+                    key={post._id}
+                    className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                  >
                     <TableCell>
                       <img
                         src={post.image}
-                        alt="user"
+                        alt="post"
                         className="w-14 h-10 rounded-md bg-gray-500"
                       />
                     </TableCell>
                     <TableCell className="w-96">{post.title}</TableCell>
                     <TableCell className="w-5">{post.category}</TableCell>
                   </TableRow>
-                </TableBody>
-              ))}
+                ))}
+            </TableBody>
           </Table>
         </div>
       </div>
